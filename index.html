@@ -37,11 +37,11 @@
             <div class="flex justify-between items-center">
                 <div class="text-xl font-bold text-primary">Portfolio</div>
                 <div class="hidden md:flex space-x-8">
-                    <span class="hover:text-primary transition-colors cursor-pointer">About</span>
-                    <span class="hover:text-primary transition-colors cursor-pointer">Tech Stack</span>
-                    <span class="hover:text-primary transition-colors cursor-pointer">Projects</span>
-                    <span class="hover:text-primary transition-colors cursor-pointer">Experience</span>
-                    <span class="hover:text-primary transition-colors cursor-pointer">Contact</span>
+                    <span class="hover:text-primary transition-colors cursor-pointer button-scroll" data-target="about">About</span>
+                    <span class="hover:text-primary transition-colors cursor-pointer button-scroll" data-target="tech">Tech Stack</span>
+                    <span class="hover:text-primary transition-colors cursor-pointer button-scroll" data-target="project">Projects</span>
+                    <span class="hover:text-primary transition-colors cursor-pointer button-scroll" data-target="experience">Experience</span>
+                    <span class="hover:text-primary transition-colors cursor-pointer button-scroll" data-target="contact">Contact</span>
                 </div>
             </div>
         </nav>
@@ -58,7 +58,7 @@
                         I love building things with code — from simple interfaces to full-featured web applications that solve real-world problems.
                     </p>
                     <div class="flex space-x-4">
-                        <span class="bg-primary text-dark px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors cursor-pointer">
+                        <span class="bg-primary text-dark px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors cursor-pointer button-scroll" data-target="project">
                             View Work
                         </span>
                         <span class="border border-gray-600 px-6 py-3 rounded-lg font-medium hover:border-primary transition-colors flex items-center space-x-2 cursor-pointer">
@@ -72,7 +72,7 @@
 
         <section id="about" class="py-16 px-6">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-bold mb-8">About Me</h2>
+                <h2 class="text-3xl font-bold mb-8 about">About Me</h2>
                 <div class="max-w-3xl text-gray-400 leading-relaxed">
                     <p class="mb-6">
                         I'm Hilmi Muzhaffar Ibni Aziz, an Informatics graduate from Universitas Sebelas Maret. I'm a passionate software developer who genuinely enjoys building things with code — whether it's a simple landing page or a full-featured web app.
@@ -86,7 +86,7 @@
 
         <section id="tech" class="py-16 px-6 bg-darker">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-bold mb-12">Tech Stack</h2>
+                <h2 class="text-3xl font-bold mb-12 tech">Tech Stack</h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
                     <div class="flex flex-col items-center space-y-3">
                         <i class="fa-brands fa-python text-4xl text-yellow-600"></i>
@@ -142,7 +142,7 @@
 
         <section id="projects" class="py-16 px-6">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-bold mb-12">Featured Projects</h2>
+                <h2 class="text-3xl font-bold mb-12 project">Featured Projects</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-gray-800 p-6 hover:bg-zinc-800 transition-colors">
                         <div class="flex justify-between items-start mb-4">
@@ -214,7 +214,7 @@
 
         <section id="experience" class="py-16 px-6 bg-darker">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-bold mb-12">Education & Experience</h2>
+                <h2 class="text-3xl font-bold mb-12 experience">Education & Experience</h2>
                 <div class="space-y-8">
                     <div id="exp-1" class="flex flex-col md:flex-row md:space-x-8">
                         <div class="md:w-1/4 mb-4 md:mb-0">
@@ -261,7 +261,7 @@
 
         <section id="contact" class="py-16 px-6">
             <div class="max-w-6xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-8">Thanks for Stopping By!</h2>
+                <h2 class="text-3xl font-bold mb-8 contact">Thanks for Stopping By!</h2>
                 <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
                     Really glad you made it all the way here. This portfolio gives you a peek into what I've been working on and what I'm passionate about. I'm always up for fun projects, cool collabs, or even just a chat over coffee or even just a chat over coffee ☕.
                 </p>
@@ -285,5 +285,6 @@
             </div>
         </section>
     </main>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

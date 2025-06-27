@@ -2,6 +2,10 @@
     display: none;
 }
 
+* {
+  scroll-margin-top: 70px;
+}
+
 html, body {
     -ms-overflow-style: none;
     scrollbar-width: none;
