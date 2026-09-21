@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRIS Payment - HILMI MUZHAFFAR IBNI AZIZ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        :root {
+            color-scheme: light;
+            --background: #f4f7f6;
+            --ink: #333333;
+            --muted: #7f8c8d;
+            --line: #d5d9dc;
+            --paper: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            background: var(--background);
+            color: var(--ink);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .qris-paper {
+            width: min(100%, 680px);
+            margin: 0 auto;
+            padding: 50px;
+            background: var(--paper);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .qris-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--ink);
+        }
+
+        .eyebrow {
+            margin: 0 0 6px;
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(26px, 6vw, 38px);
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .qris-mark {
+            flex: 0 0 auto;
+            width: 210px;
+            height: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qris-mark img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .merchant-details {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .merchant-details h2 {
+            margin: 0 0 4px;
+            font-size: 18px;
+        }
+
+        .merchant-details p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 28px 20px 24px;
+            border: 1px solid var(--line);
+        }
+
+        #qrcode {
+            display: flex;
+            min-height: 256px;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            background: var(--paper);
+        }
+
+        #qrcode img,
+        #qrcode canvas {
+            display: block;
+            width: 256px !important;
+            height: 256px !important;
+        }
+
+        .scan-label {
+            margin: 18px 0 0;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .payload-details {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .payload-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 7px 0;
+        }
+
+        .payload-row span:first-child {
+            color: var(--muted);
+        }
+
+        .payload-row strong {
+            text-align: right;
+        }
+
+        .error {
+            color: #a33a3a;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 24px 12px;
+            }
+
+            .qris-paper {
+                padding: 28px 20px;
+            }
+
+            .qris-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .payload-row {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .payload-row strong {
+                text-align: left;
+            }
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: #ffffff;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .qris-paper {
+                width: 100%;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="qris-paper">
+        <header class="qris-header">
+            <!-- <div>
+                <p class="eyebrow">Digital Payment</p>
+                <h1>QRIS</h1>
+            </div> -->
+            <div class="qris-mark" aria-label="QRIS logo">
+                <img src="qris.svg" alt="QRIS logo" />
+            </div>
+        </header>
+
+        <section class="merchant-details" aria-labelledby="merchant-name">
+            <h2 id="merchant-name">HILMI MUZHAFFAR IBNI AZIZ</h2>
+            <p>NMID: ID1025423707690</p>
+        </section>
+
+        <section class="qr-section" aria-label="Payment QR code">
+            <div id="qrcode"></div>
+            <p class="scan-label">Scan to make payment</p>
+        </section>
+
+        <!-- <section class="payload-details" aria-label="Merchant details">
+            <div class="payload-row">
+                <span>Merchant Name</span>
+                <strong>HILMI MUZHAFFAR IBNI AZIZ</strong>
+            </div>
+            <div class="payload-row">
+                <span>NMID</span>
+                <strong>ID1025423707690</strong>
+            </div>
+        </section> -->
+    </main>
+
+    <script>
+        const qrisPayload = '00020101021126610014COM.GO-JEK.WWW01189360091433012878430210G3012878430303UMI51440014ID.CO.QRIS.WWW0215ID10254237076900303UMI5204899953033605802ID5925HILMI MUZHAFFAR IBNI AZIZ6007KEBUMEN61055442162070703A016304058D';
+        const qrCodeElement = document.getElementById('qrcode');
+
+        if (typeof QRCode === 'function') {
+            new QRCode(qrCodeElement, {
+                text: qrisPayload,
+                width: 256,
+                height: 256,
+                colorDark: '#333333',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.M
+            });
+        } else {
+            qrCodeElement.innerHTML = '<p class="error">QR code could not be loaded. Please check your internet connection and reload the page.</p>';
+        }
+    </script>
+</body>
+</html>
